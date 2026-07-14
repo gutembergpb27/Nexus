@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+
+<title>Nexus</title>
+
+<style>
+
+body{
+background:#0f172a;
+font-family:Arial,Helvetica,sans-serif;
+margin:0;
+color:white;
+}
+
+header{
+background:#111827;
+padding:25px;
+text-align:center;
+font-size:34px;
+font-weight:bold;
+color:#38bdf8;
+}
+
+.container{
+width:90%;
+margin:auto;
+margin-top:30px;
+}
+
+.card{
+background:#1e293b;
+padding:25px;
+border-radius:12px;
+margin-bottom:20px;
+box-shadow:0 0 20px rgba(0,0,0,.4);
+}
+
+.titulo{
+font-size:24px;
+margin-bottom:20px;
+color:#60a5fa;
+}
+
+.info{
+font-size:20px;
+margin:12px 0;
+}
+
+.status{
+font-size:24px;
+font-weight:bold;
+color:#22c55e;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+NEXUS
+
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<div class="titulo">
+Status do Sistema
+</div>
+
+<div class="status">
+
+{{ dados.status }}
+
+</div>
+
+<div class="info">
+
+Node:
+
+{{ dados.node_id }}
+
+</div>
+
+<div class="info">
+
+Último Payload:
+
+{{ dados.last_payload }}
+
+</div>
+
+<div class="info">
+
+Timestamp:
+
+{{ dados.timestamp }}
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

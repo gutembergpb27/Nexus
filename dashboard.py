@@ -1,16 +1,23 @@
-from flask import Flask, jsonify
+from flask import Flask, render_template
 import json
 import os
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route("/")
 def index():
-    if os.path.exists('metrics.json'):
-        with open('metrics.json', 'r') as f:
-            data = json.load(f)
-        return jsonify(data)
-    return "Métricas não encontradas", 404
+    if os.path.exists("metrics.json"):
+        with open("metrics.json", "r", encoding="utf-8") as arquivo:
+            dados = json.load(arquivo)
+    else:
+        dados = {
+            "status": "SEM DADOS",
+            "node_id": "Nexus",
+            "last_payload": "Nenhum",
+            "timestamp": "-"
+        }
 
-if __name__ == '__main__':
-    app.run(port=5000)
+    return render_template("index.html", dados=dados)
+
+if __name__ == "__main__":
+    app.run(host="127.0.0.1", port=5000, debug=False)
